@@ -3,9 +3,10 @@ $(document).ready(function() {
         e.preventDefault()
 
         if ($('#todo-input').val() == '') {
-            alert('Insira uma tarefa corretamente.')
+            $('.alert').removeClass('hide')
         } else {
             createTask()
+            $('.alert').addClass('hide')
         }    
 
         // funções
@@ -35,18 +36,18 @@ $(document).ready(function() {
             todoDiv.append(finishButton)
             todoDiv.append(editButton)
             todoDiv.append(removeButton)
+        }
 
         // eventos
 
-        finishButton.on('click', () => {
-            const targetEl = finishButton.closest("div")
+        $(document).on('click', '.finish-todo', function() {
+            const targetEl = $(this).closest("div")
             targetEl.toggleClass('done')
         })
 
-        removeButton.on("click", () => {
-            const parentEl = removeButton.closest("div")
+        $(document).on('click', '.remove-todo', function() {
+            const parentEl = $(this).closest("div")
             parentEl.remove()
         })
-        }
     })
 })

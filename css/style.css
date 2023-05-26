@@ -58,9 +58,18 @@ input, select {
     border-bottom: 1px solid #ccc;
 }
 
-#todo-form p, #edit-form p {
+#todo-form .p-form, #edit-form .p-form {
     margin-bottom: .5rem;
     font-weight: bold;
+}
+
+.alert {
+    width: fit-content;
+    color: #ca4141;
+    font-weight: normal;
+    font-size: 15px;
+    position: relative;
+    top: 8px;
 }
 
 .form-control {
