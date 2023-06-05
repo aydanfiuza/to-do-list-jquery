@@ -6,6 +6,7 @@ $(document).ready(function() {
             $('.alert').removeClass('hide')
         } else {
             createTask()
+            saveTaskToLocalStorage()
             $('.alert').addClass('hide')
         }    
 
@@ -36,6 +37,15 @@ $(document).ready(function() {
             todoDiv.append(finishButton)
             todoDiv.append(editButton)
             todoDiv.append(removeButton)
+        }
+
+        function saveTaskToLocalStorage() {
+            const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+            tasks.push({
+                text: $('#todo-input').val(),
+                done: false
+            });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
         }
 
         // eventos
